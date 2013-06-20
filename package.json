@@ -1,7 +1,7 @@
 {
   "name": "push-urbanairship",
   "fullName": "Urban Airship Push Notifications",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [
     "push",
     "notifications",
@@ -42,7 +42,7 @@
           "type": "string",
           "title": "App Secret"
         },
-        "ua-app-gcmSender": {
+        "gcmSender": {
           "type": "string",
           "title": "GCM Sender",
           "joshfire:definedFor": ["phone-android", "tablet-android"]
