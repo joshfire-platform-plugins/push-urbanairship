@@ -1,9 +1,10 @@
 {
-  "name": "push",
-  "fullName": "Push Notifications",
-  "version": "0.0.1",
+  "name": "push-urbanairship",
+  "fullName": "Urban Airship Push Notifications",
+  "version": "0.0.2",
   "keywords": [
     "push",
+    "notifications",
     "urban airship"
   ],
   "description": "Push notifications with Urban Airship",
