@@ -1,7 +1,7 @@
 {
   "name": "push-urbanairship",
   "fullName": "Urban Airship Push Notifications",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "keywords": [
     "push",
     "notifications",
@@ -62,7 +62,7 @@
           "title": "Production",
           "items": [
             "prod-app-key",
-            "prod-app-secret",
+            "prod-app-secret"
           ]
         },
         "gcmSender"
