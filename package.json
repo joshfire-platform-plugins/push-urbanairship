@@ -1,0 +1,40 @@
+{
+  "name": "push",
+  "fullName": "Push Notifications",
+  "version": "0.0.1",
+  "keywords": [
+    "push",
+    "urban airship"
+  ],
+  "description": "Push notifications with Urban Airship",
+  "joshfire": {
+    "images": {
+      "small": "marketing/ua-logo.png",
+      "big":"marketing/ua-logo.png"
+    },
+    "hooks": [
+      "injectCordovaPluginJS",
+      "xcodeproj",
+      "androidproj"
+    ],
+    "options": {
+      "schema": {
+        "ua-app-key": {
+          "type": "string",
+          "title": "App Key",
+          "description": "App key from your UA app settings/API key section"
+        },
+        "ua-app-secret": {
+          "type": "string",
+          "title": "App Secret",
+          "description": "App secret from your UA app settings/API key section"
+        },
+        "ua-app-gcmSender": {
+          "type": "string",
+          "title": "GCM Sender",
+          "description": "For Android only"
+        }
+      }
+    }
+  }
+}
