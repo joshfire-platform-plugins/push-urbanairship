@@ -1,7 +1,7 @@
 {
   "name": "push-urbanairship",
   "fullName": "Urban Airship Push Notifications",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "push",
     "notifications",
@@ -13,6 +13,12 @@
       "small": "marketing/ua-logo.png",
       "big":"marketing/ua-logo.png"
     },
+    "devices": [
+      "phone-ios",
+      "phone-android",
+      "tablet-ios",
+      "tablet-android"
+    ],
     "hooks": [
       "injectCordovaPluginJS",
       "xcodeproj",
@@ -20,22 +26,47 @@
     ],
     "options": {
       "schema": {
-        "ua-app-key": {
+        "dev-app-key": {
           "type": "string",
-          "title": "App Key",
-          "description": "App key from your UA app settings/API key section"
+          "title": "App Key"
         },
-        "ua-app-secret": {
+        "dev-app-secret": {
           "type": "string",
-          "title": "App Secret",
-          "description": "App secret from your UA app settings/API key section"
+          "title": "App Secret"
+        },
+        "prod-app-key": {
+          "type": "string",
+          "title": "App Key"
+        },
+        "prod-app-secret": {
+          "type": "string",
+          "title": "App Secret"
         },
         "ua-app-gcmSender": {
           "type": "string",
           "title": "GCM Sender",
-          "description": "For Android only"
+          "joshfire:definedFor": ["phone-android", "tablet-android"]
         }
-      }
+      },
+      "form": [
+        {
+          "type": "fieldset",
+          "title": "Development",
+          "items": [
+            "dev-app-key",
+            "dev-app-secret"
+          ]
+        },
+        {
+          "type": "fieldset",
+          "title": "Production",
+          "items": [
+            "prod-app-key",
+            "prod-app-secret",
+          ]
+        },
+        "gcmSender"
+      ]
     }
   }
 }
