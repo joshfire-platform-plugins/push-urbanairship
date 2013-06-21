@@ -114,28 +114,36 @@ define(['woodman'], function (woodman) {
      * @param {function} cb Callback
      */
     function updateUAConfigFile(configFilePath, cb) {
-      var envtype = params.envtype;
-      //if (!envtype) envtype = 'debug';
-      envtype = 'debug';
-      logger.log('updateUAConfigFile envtype', envtype);
+      var releasemode = params.releasemode;
+      logger.log('updateUAConfigFile releasemode', releasemode);
       var dev = true;
+      var err;
 
-      if (envtype === 'live' || envtype === 'staging') {
-        dev = false;
-      } else if (envtype === 'debug') {
-        dev = true;
+      if (releasemode === undefined) {
+        dev = !releasemode;
       } else {
-        var err = new Error('envtype ' + envtype + ' is not recognized');
+        err = new Error('environment type (releasemode) is not recognized');
         logger.warn('updateUAConfigFile error', err);
         cb(err);
         return;
       }
 
-      var prefix = dev ? 'development' : 'production';
+      var options = params.options;
+      if (!options) {
+        err = new Error('no options parameters.. can\'t retrieve app key/secrets');
+        logger.warn('updateUAConfig error', err);
+        cb(err);
+      }
+
+      var prefix = dev ? 'dev' : 'prod';
+      var appKey    = options[prefix + '-app-key'];
+      var appSecret = options[prefix + '-app-secret'];
+
+      prefix = dev ? 'development' : 'production';
       var replaceMap = {};
       replaceMap['__gcmSender__']               = '633609568080';
-      replaceMap['__' + prefix + 'AppKey__']    = 'hVN_js8kSBygQCYMK4wN8w';
-      replaceMap['__' + prefix + 'AppSecret__'] = '9PRDQ1w9SdO__vkxqybeSw';
+      replaceMap['__' + prefix + 'AppKey__']    = appKey;
+      replaceMap['__' + prefix + 'AppSecret__'] = appSecret;
       replaceMap['__inProduction__']            = dev ? 'false' : 'true';
 
       // inproduction...
