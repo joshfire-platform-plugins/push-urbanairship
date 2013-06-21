@@ -119,7 +119,7 @@ define(['woodman'], function (woodman) {
       var dev = true;
       var err;
 
-      if (releasemode === undefined) {
+      if (releasemode !== undefined) {
         dev = !releasemode;
       } else {
         err = new Error('environment type (releasemode) is not recognized');
