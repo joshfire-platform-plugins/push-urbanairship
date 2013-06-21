@@ -97,27 +97,37 @@ define(['woodman'], function (woodman) {
      */
     function updateUAConfig(cb) {
       var envtype = params.envtype;
-      //if (!envtype) envtype = 'debug';
-      envtype = 'debug';
       logger.log('updateUAConfig envtype', envtype);
       var dev = true;
+      var err;
 
       if (envtype === 'live' || envtype === 'staging') {
         dev = false;
       } else if (envtype === 'debug') {
         dev = true;
       } else {
-        var err = new Error('envtype ' + envtype + ' is not recognized');
+        err = new Error('envtype ' + envtype + ' is not recognized');
         logger.warn('updateUAConfig error', err);
         cb(err);
         return;
       }
 
-      var prefix = dev ? 'DEVELOPMENT' : 'PRODUCTION';
+      var options = params.options;
+      if (!options) {
+        err = new Error('no options parameters.. can\'t retrieve app key/secrets');
+        logger.warn('updateUAConfig error', err);
+        cb(err);
+      }
+
+      var prefix = dev ? 'dev' : 'prod';
+      var appKey    = options[prefix + '-app-key'];
+      var appSecret = options[prefix + '-app-secret'];
+
+      prefix = dev ? 'DEVELOPMENT' : 'PRODUCTION';
       var replaceMap = {};
       replaceMap['__APP_STORE_OR_AD_HOC_BUILD__'] = dev ? 'NO' : 'YES';
-      replaceMap['__' + prefix + '_APP_KEY__']    = '"hVN_js8kSBygQCYMK4wN8w"';
-      replaceMap['__' + prefix + '_APP_SECRET__'] = '"9PRDQ1w9SdO__vkxqybeSw"';
+      replaceMap['__' + prefix + '_APP_KEY__']    = '"' + appKey    + '"';
+      replaceMap['__' + prefix + '_APP_SECRET__'] = '"' + appSecret + '"';
 
       logger.log('updateUAConfig replaceMap', replaceMap);
 
