@@ -26,7 +26,7 @@ define(['woodman'], function (woodman) {
     }
 
     /**
-     * Injects source code in MyApplication.java at various placeholders:
+     * Injects source code in MainApplication.java at various placeholders:
      *  - imports
      *  - onCreate
      *  - onStop
@@ -69,7 +69,7 @@ define(['woodman'], function (woodman) {
 
       logger.log('injectInApplicationSrc replaceMap', replaceMap);
 
-      var fpath = './src/' + packagePath + '/MyApplication.java';
+      var fpath = './src/' + packagePath + '/MainApplication.java';
       logger.log('injectInApplicationSrc fpath', fpath);
 
       runtime.multipleReplaceInFile(fpath, replaceMap, function (err) {
