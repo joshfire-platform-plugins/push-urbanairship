@@ -1,7 +1,7 @@
 define(['woodman'], function (woodman) {
   return function (runtime, params, callback) {
 
-    var logger = woodman.getLogger('add-on', 'push', 'xcodeproj');
+    var logger = woodman.getLogger('add-on push xcodeproj');
     logger.log('started');
 
     /**

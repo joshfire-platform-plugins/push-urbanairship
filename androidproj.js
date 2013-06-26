@@ -1,7 +1,7 @@
 define(['woodman'], function (woodman) {
   return function (runtime, params, callback) {
 
-    var logger = woodman.getLogger('add-on', 'push', 'androidproj');
+    var logger = woodman.getLogger('add-on push androidproj');
     logger.log('started');
 
     // should use path.sep rather than '/' ... don't want this to fail on MSWIN
