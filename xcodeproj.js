@@ -24,16 +24,16 @@ define(['woodman'], function (woodman) {
 
 
     /**
-     * Copy the Urban Airship library to the xcode projects' app directory
+     * Copy the Urban Airship library to the xcode projects' directory
      *
      * @function
      * @param {function} cb Callback
      */
     function copyLibraryToProject(cb) {
       var iOSLibrary = './urban-airship/ios/lib';
-      var libDest = './Airship';
+      var libDest = 'Airship';
 
-      runtime.copyFromAddonToProject(iOSLibrary, libDest, function (err) {
+      runtime.copyFromAddon(iOSLibrary, libDest, function (err) {
         if (err) {
           logger.warn('copyLibraryToProject copyFromAddonToProject error', err);
         } else {
