@@ -1,7 +1,7 @@
 {
   "name": "push-urbanairship",
   "fullName": "Urban Airship Push Notifications",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "keywords": [
     "push",
     "notifications",
@@ -9,10 +9,6 @@
   ],
   "description": "Push notifications with Urban Airship",
   "joshfire": {
-    "images": {
-      "small": "marketing/ua-logo.png",
-      "big":"marketing/ua-logo.png"
-    },
     "devices": [
       "phone-ios",
       "phone-android",
