@@ -8,24 +8,6 @@ define(['woodman'], function (woodman) {
     var packagePath = params.packagename.replace(/\./g, '/');
 
     /**
-     * Invoke plugman.install on the android project
-     *
-     * @function
-     * @param {function} cb Callback
-     */
-    function plugmanInstall(cb) {
-      runtime.plugmanInstall('./urban-airship', function (err) {
-        if (err) {
-          logger.error('plugmanInstall error', err);
-        } else {
-          logger.log('we DONE');
-        }
-
-        cb(err);
-      });
-    }
-
-    /**
      * Injects source code in MainApplication.java at various placeholders:
      *  - imports
      *  - onCreate
@@ -218,7 +200,6 @@ define(['woodman'], function (woodman) {
      * is better for simplicity
      */
     runtime.async.series([
-      plugmanInstall,
       injectInApplicationSrc,
       updateSrcFile,
       updateUAConfig

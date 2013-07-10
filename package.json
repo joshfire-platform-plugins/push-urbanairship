@@ -1,7 +1,7 @@
 {
   "name": "push-urbanairship",
   "fullName": "Urban Airship Push Notifications",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "keywords": [
     "push",
     "notifications",
@@ -16,7 +16,7 @@
       "tablet-android"
     ],
     "hooks": [
-      "injectCordovaPluginJS",
+      "plugman",
       "xcodeproj",
       "androidproj"
     ],

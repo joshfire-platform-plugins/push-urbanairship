@@ -5,25 +5,6 @@ define(['woodman'], function (woodman) {
     logger.log('started');
 
     /**
-     * Invoke plugman.install on the xcode project
-     *
-     * @function
-     * @param {function} cb Callback
-     */
-    function plugmanInstall(cb) {
-      runtime.plugmanInstall('./urban-airship', function (err) {
-        if (err) {
-          logger.error('plugmanInstall error', err);
-        } else {
-          logger.log('we DONE');
-        }
-
-        cb(err);
-      });
-    }
-
-
-    /**
      * Copy the Urban Airship library to the xcode projects' directory
      *
      * @function
@@ -91,8 +72,6 @@ define(['woodman'], function (woodman) {
      * Updates the Urban Airship config file (Resources/AirshipConfig.plist)
      *
      * @function
-     * @param {string}   configFilePath The path to the config file (relative
-     *  to the xcode projects' app directory)
      * @param {function} cb Callback
      */
     function updateUAConfig(cb) {
@@ -122,6 +101,7 @@ define(['woodman'], function (woodman) {
       var prefix = dev ? 'dev' : 'prod';
       var appKey    = options[prefix + '-app-key'];
       var appSecret = options[prefix + '-app-secret'];
+      // check if these aren't undefined...
 
       prefix = dev ? 'DEVELOPMENT' : 'PRODUCTION';
       var replaceMap = {};
@@ -151,7 +131,6 @@ define(['woodman'], function (woodman) {
      * is better for simplicity
      */
     runtime.async.series([
-      plugmanInstall,
       addLibraryToHeaderSearchPaths,
       updateUAConfig
     ], function (err) {
