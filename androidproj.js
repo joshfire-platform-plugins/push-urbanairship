@@ -151,8 +151,11 @@ define(['woodman'], function (woodman) {
      * @param {function} cb Callback
      */
     function updateSrcFile(cb) {
+      var importStr = 'import ' + params.packagename + '.' + params.activityname + ';';
+
       var replaceMap = {
-        '___JOSHFIREFACTORYACTIVITYNAME___' : params.activityname
+        '___JOSHFIREFACTORYACTIVITYNAME___'                   : params.activityname,
+        '\\/\\*\\*___JOSHFIRE_IMPORT_PLACEHOLDER___\\*\\*\\/' : importStr
       };
 
       var srcFilePath = './src/com/urbanairship/phonegap/plugins/PushNotificationPluginIntentReceiver.java';
