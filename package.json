@@ -7,7 +7,7 @@
     "notifications",
     "urban airship"
   ],
-  "description": "Push notifications with Urban Airship",
+  "description": "Setup a Urban Airship account and start pushing right away!<br>iOS and Android only",
   "joshfire": {
     "devices": [
       "phone-ios",
@@ -40,11 +40,15 @@
         },
         "gcmSender": {
           "type": "string",
-          "title": "GCM Sender",
+          "title": "GCM Sender ID",
           "joshfire:definedFor": ["phone-android", "tablet-android"]
         }
       },
       "form": [
+        {
+          "type": "help",
+          "helpvalue": "Confused by all these fields? Keep calm and check our <a href=\"http://docs.joshfire.com/doc/create/addons\">guide</a>"
+        },
         "gcmSender",
         {
           "type": "fieldset",
