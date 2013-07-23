@@ -1,7 +1,7 @@
 {
   "name": "push-urbanairship",
   "fullName": "Urban Airship Push Notifications",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "keywords": [
     "push",
     "notifications",
@@ -41,13 +41,14 @@
         "gcmSender": {
           "type": "string",
           "title": "GCM Sender ID",
+          "description": "the value after '#project:' in your GCM account URL",
           "joshfire:definedFor": ["phone-android", "tablet-android"]
         }
       },
       "form": [
         {
           "type": "help",
-          "helpvalue": "Confused by all these fields? Keep calm and check our <a href=\"http://docs.joshfire.com/doc/create/addons\">guide</a>"
+          "helpvalue": "To optain the values required by the following fields you need a <a href=\"https://go.urbanairship.com/accounts/register/\">Urban Airship</a> account. Then you need to enable Push services:<ul><li>For iOS you need a provisioning profile with APNS (Apple Push Notifications Service) enabled, then you need to setup APNS on your Urban Airship account by providing the certificate associated to the provisioning profile you just created.</li><li>For Android you need to setup a GCM (Google Cloud Messaging) account, generate a GCM key for server apps, then setup the GCM service on your Urban Airship account by providing your just-generated GCM server key and the package name for your deploy.</li></ul>Only once these services are setup you can retrieve your Urban Airship app keys in the <i>App->Settings->API Keys</i> section.<br>When you create a debug deploy, the development keys are needed and when you create a production deploy, the production keys are needed.<br>For more detailed step-by-step instructions check our <a href=\"http://docs.joshfire.com/doc/create/addons\">guide</a>."
         },
         "gcmSender",
         {
