@@ -48,7 +48,7 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
             <!-- REQUIRED for PhoneGap plugin callback support -->
-            <receiver android:name="$PACKAGE_NAME.PushNotificationPluginIntentReceiver" />
+            <receiver android:name="com.urbanairship.phonegap.plugins.PushNotificationPluginIntentReceiver" />
 
             <!-- REQUIRED for Urban Airship GCM-->
             <receiver android:name="com.urbanairship.CoreReceiver" />
