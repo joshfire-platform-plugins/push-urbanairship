@@ -118,12 +118,13 @@ define(['woodman'], function (woodman) {
       }
 
       var prefix = dev ? 'dev' : 'prod';
+      var gcmSender = options['gcmSender'];
       var appKey    = options[prefix + '-app-key'];
       var appSecret = options[prefix + '-app-secret'];
 
       prefix = dev ? 'development' : 'production';
       var replaceMap = {};
-      replaceMap['__gcmSender__']               = '633609568080';
+      replaceMap['__gcmSender__']               = gcmSender;
       replaceMap['__' + prefix + 'AppKey__']    = appKey;
       replaceMap['__' + prefix + 'AppSecret__'] = appSecret;
       replaceMap['__inProduction__']            = dev ? 'false' : 'true';
