@@ -263,7 +263,10 @@ cordova.addConstructor(function () {
   }
   if (!window.plugins.pushNotification) {
     var push = window.plugins.pushNotification = new PushNotification();
-    push.registerForNotificationTypes(push.notificationType.badge | push.notificationType.sound | push.notificationType.alert);
-    push.enablePush();
+
+    document.addEventListener('deviceready', function () {
+      push.registerForNotificationTypes(push.notificationType.badge | push.notificationType.sound | push.notificationType.alert);
+      push.enablePush();
+    }, false);
   }
 });
